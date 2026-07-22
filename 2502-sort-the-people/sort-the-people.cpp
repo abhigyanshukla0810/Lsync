@@ -5,8 +5,7 @@ public:
         for(int i = 0; i<heights.size();i++){
             v.emplace_back(heights[i],names[i]);
         }
-        sort(v.begin(),v.end());
-        reverse(v.begin(),v.end());
+        sort(v.rbegin(),v.rend());
         vector <string> anal;
         for(auto it : v) anal.emplace_back(it.second);
         return anal;
