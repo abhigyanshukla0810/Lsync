@@ -14,7 +14,6 @@ public:
         for(int i = n; i<n+11;i++){
             if((i%10)*(i/10) % t == 0) return i;
         }
-
         return 0;
     }
 };
