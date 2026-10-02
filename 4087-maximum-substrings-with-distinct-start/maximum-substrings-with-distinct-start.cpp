@@ -1,9 +1,18 @@
 class Solution {
 public:
     int maxDistinct(string s) {
-        unordered_set <char> st;
-        for(char x : s) st.insert(x);
-        return st.size();
+        int alpha[27] = {0};
+        for(char x : s)
+        {
+            alpha[x-'a']++;
+        }
+        int sum = 0;
+        for(int i = 0; i<26;i++)
+        {
+            if(alpha[i] > 0) sum++;
+
+        }
+        return sum;
 
     }
 };
