@@ -22,19 +22,15 @@ vector<int> v;
             (*i)++;
             inorder(root->right,i);
         }
-    TreeNode* bstToGst(TreeNode* root) {
-        TreeNode* current = root;
-        stack<TreeNode*> st;
-        st.push(current);
-        while(!st.empty())
+        void inord(TreeNode* root)
         {
-            TreeNode* r1 = st.top();
-            st.pop();
-            v.emplace_back(r1->val);
-            if(r1->left != nullptr) st.push(r1->left);
-            if(r1->right != nullptr) st.push(r1->right);
+            if(root == nullptr) return;
+            inord(root->left);
+            v.emplace_back(root->val);
+            inord(root->right);
         }
-        sort(v.begin(), v.end());
+    TreeNode* bstToGst(TreeNode* root) {
+        inord(root);
         int sum = 0;
         for(int x : v) sum+=x;
         int prev = 0;
