@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-TreeNode* Bal(int l, int r, vector<int> v)
+TreeNode* Bal(int l, int r, vector<int> &v)
 {
     if(l>r) return nullptr;
     int mid = l + (r-l)/2;
