@@ -14,8 +14,9 @@ public:
     bool check(TreeNode* root, long long low, long long high)
     {
         if(root == nullptr) return true;
-        if(root->val >= high || root->val <= low) return false;
-        return check(root->right,root->val,high) && check(root->left, low,root->val);
+        if(root->val <= low) return false;
+        if(root->val >= high) return false;
+        return check(root->left,low, root->val) && check(root->right, root->val, high);
     }
 
     bool isValidBST(TreeNode* root) {
